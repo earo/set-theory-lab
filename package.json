@@ -1,0 +1,12 @@
+{
+  "name": "set-theory-lab",
+  "version": "1.0.0",
+  "description": "Step-by-step calculators and visualizers for an intro to set theory class",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test tests/"
+  }
+}
