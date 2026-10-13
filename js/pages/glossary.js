@@ -43,11 +43,11 @@ export default {
       const q = search.value.trim().toLowerCase();
       const rows = SYMBOLS.filter((r) => !q || r.join(' ').toLowerCase().includes(q));
       const groups = [...new Set(rows.map((r) => r[4]))];
-      clear(out).append(rows.length ? groups.map((g) => card(g,
+      clear(out).append(...(rows.length ? groups.map((g) => card(g,
         h('div', { class: 'table-wrap' }, h('table', { class: 'table' },
           h('thead', {}, h('tr', {}, h('th', {}, 'Symbol'), h('th', {}, 'Name'), h('th', {}, 'Say it'), h('th', {}, 'Example'))),
           h('tbody', {}, rows.filter((r) => r[4] === g).map(([sym, name, say, ex]) =>
-            h('tr', {}, h('td', { class: 'math big nowrap' }, sym), h('th', {}, name), h('td', {}, say), h('td', { class: 'math' }, ex)))))))) : h('p', {}, 'No symbols match that search.'));
+            h('tr', {}, h('td', { class: 'math big nowrap' }, sym), h('th', {}, name), h('td', {}, say), h('td', { class: 'math' }, ex)))))))) : [h('p', {}, 'No symbols match that search.')]));
     };
     search.addEventListener('input', draw);
     root.append(
